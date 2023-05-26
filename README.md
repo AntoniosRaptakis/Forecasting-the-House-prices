@@ -106,10 +106,12 @@ Part of the data cleaning is to find out missing values. If we assume the datafr
 
 <img src="https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/de1d2ff3-32e1-4735-857d-c68d960e6d83" width="3500" height="400">
 	
-I used a threshold of 40% to find out the columns (variables) 
+How can I tackle this problem? 
+	
+Firstly, I am searching which columns have data missing and if the percentage of missing values is greater or equal than a threshold of 40%, then this column has to be deleted!
+	
 	missing_values_threshold = data.shape[0]*0.4
-columns_for_deletion, variables_with_missing_values = [], []
-
+	columns_for_deletion, variables_with_missing_values = [], []
 	for x in data.columns:
 	    if data[x].isna().sum() >= missing_values_threshold:
 	        print(x, ':', data[x].isna().sum())
