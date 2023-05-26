@@ -101,7 +101,8 @@ I start with reading the dataset using pandas. There are 79 columns and 1460 row
   - **SaleCondition**: Condition of sale
   - **SalePrice**: Price of sale
 
-
+<ins>**Data Cleaning**<ins>:
+	
 Part of the data cleaning is to find out missing values. If we assume the dataframe as a matrix, where the columns are on the horizontal direction and the rows on the vertical, the missing values can be clearly visualized with the yellow lines, as shown in the figure below.
 
 <img src="https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/de1d2ff3-32e1-4735-857d-c68d960e6d83" width="3500" height="400">
@@ -131,3 +132,6 @@ Which columns will be deleted?
 	from sklearn.impute import KNNImputer
 	imputer = KNNImputer(n_neighbors=8)
 	data = pd.DataFrame(imputer.fit_transform(data), columns=data.columns)
+	
+
+
