@@ -110,9 +110,9 @@ I used a threshold of 40% to find out the columns (variables)
 	missing_values_threshold = data.shape[0]*0.4
 columns_for_deletion, variables_with_missing_values = [], []
 
-for x in data.columns:
-    if data[x].isna().sum() >= missing_values_threshold:
-        print(x, ':', data[x].isna().sum())
-        columns_for_deletion.append(x)
-    elif data[x].isna().sum()>0:
-        variables_with_missing_values.append(x)
+	for x in data.columns:
+	    if data[x].isna().sum() >= missing_values_threshold:
+	        print(x, ':', data[x].isna().sum())
+	        columns_for_deletion.append(x)
+	    elif data[x].isna().sum()>0:
+	        variables_with_missing_values.append(x)
