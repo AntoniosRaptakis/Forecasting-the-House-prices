@@ -152,3 +152,8 @@ The rest, which have simply some missing values, have been stored in a list. Wha
 	
 
 Other parts of data cleaning include the check of the data types, duplicated rows and outliers. The data types are as expected and there are no duplicated rows. For the outliers, it will be discussed later.
+
+
+## <ins>**Data Analysis**<ins>:
+
+## <ins>**Predictive model**<ins>:
