@@ -131,7 +131,7 @@ Which columns will be deleted?
 
 The rest, which have simply some missing values, have been stored in a list. What will I do with these cases? I will follow two methods:
 	
-<ins>**Method 1**<ins>: I will drop all rows with nan values 
+**Method 1**: I will drop all rows with nan values 
 	
 	# copy the data
 	data_dropped_na = data.copy()
