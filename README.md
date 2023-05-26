@@ -6,6 +6,8 @@ This project aims to predict the price of a house. The dataset has been taken by
 
 The region that the data have been collected is Ames at Iowa in the United States of America.
 
-<u> **Goal of the project** </u>: Create a predictive model for the house price.
+**Goal of the project**: Create a predictive model for the house price.
 
-The dataset include 
+Python libraries 
+
+After readingThe dataset include 
