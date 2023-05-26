@@ -102,6 +102,17 @@ I start with reading the dataset using pandas. There 79 columns. Let's see their
   - **SalePrice**: Price of sale
 
 
-I realized that there are missing values. If we assume the dataframe as a matrix, where the columns are on the horizontal direction and the rows on the vertical, the missing values can be clearly visualized with the yellow lines, as shown in the figure below.
+Part of the data cleaning is to find out missing values. If we assume the dataframe as a matrix, where the columns are on the horizontal direction and the rows on the vertical, the missing values can be clearly visualized with the yellow lines, as shown in the figure below.
 
 <img src="https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/de1d2ff3-32e1-4735-857d-c68d960e6d83" width="3500" height="400">
+	
+I used a threshold of 40% to find out the columns (variables) 
+	missing_values_threshold = data.shape[0]*0.4
+columns_for_deletion, variables_with_missing_values = [], []
+
+for x in data.columns:
+    if data[x].isna().sum() >= missing_values_threshold:
+        print(x, ':', data[x].isna().sum())
+        columns_for_deletion.append(x)
+    elif data[x].isna().sum()>0:
+        variables_with_missing_values.append(x)
