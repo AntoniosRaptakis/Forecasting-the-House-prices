@@ -17,7 +17,9 @@ The libraries that I used:
 - Plotly
 
 <ins>**The dataset**<ins>:
+	
 I start with reading the dataset using pandas. There 79 columns. Let's see the columns meaning:
+	
   - **MSSubClass**: Identifies the type of dwelling involved in the sale.	
   - **MSZoning**: Identifies the general zoning classification of the sale.
   - **LotFrontage**: Linear feet of street connected to property
@@ -25,93 +27,14 @@ I start with reading the dataset using pandas. There 79 columns. Let's see the c
   - **Street**: Type of road access to property
   - **Alley** : Type of alley access to property
   - **LotShape**: General shape of property
-
-       Reg	Regular	
-       IR1	Slightly irregular
-       IR2	Moderately Irregular
-       IR3	Irregular
-       
-LandContour: Flatness of the property
-
-       Lvl	Near Flat/Level	
-       Bnk	Banked - Quick and significant rise from street grade to building
-       HLS	Hillside - Significant slope from side to side
-       Low	Depression
-		
-Utilities: Type of utilities available
-		
-       AllPub	All public Utilities (E,G,W,& S)	
-       NoSewr	Electricity, Gas, and Water (Septic Tank)
-       NoSeWa	Electricity and Gas Only
-       ELO	Electricity only	
-	
-LotConfig: Lot configuration
-
-       Inside	Inside lot
-       Corner	Corner lot
-       CulDSac	Cul-de-sac
-       FR2	Frontage on 2 sides of property
-       FR3	Frontage on 3 sides of property
-	
-LandSlope: Slope of property
-		
-       Gtl	Gentle slope
-       Mod	Moderate Slope	
-       Sev	Severe Slope
-	
-Neighborhood: Physical locations within Ames city limits
-
-       Blmngtn	Bloomington Heights
-       Blueste	Bluestem
-       BrDale	Briardale
-       BrkSide	Brookside
-       ClearCr	Clear Creek
-       CollgCr	College Creek
-       Crawfor	Crawford
-       Edwards	Edwards
-       Gilbert	Gilbert
-       IDOTRR	Iowa DOT and Rail Road
-       MeadowV	Meadow Village
-       Mitchel	Mitchell
-       Names	North Ames
-       NoRidge	Northridge
-       NPkVill	Northpark Villa
-       NridgHt	Northridge Heights
-       NWAmes	Northwest Ames
-       OldTown	Old Town
-       SWISU	South & West of Iowa State University
-       Sawyer	Sawyer
-       SawyerW	Sawyer West
-       Somerst	Somerset
-       StoneBr	Stone Brook
-       Timber	Timberland
-       Veenker	Veenker
-			
-Condition1: Proximity to various conditions
-	
-       Artery	Adjacent to arterial street
-       Feedr	Adjacent to feeder street	
-       Norm	Normal	
-       RRNn	Within 200' of North-South Railroad
-       RRAn	Adjacent to North-South Railroad
-       PosN	Near positive off-site feature--park, greenbelt, etc.
-       PosA	Adjacent to postive off-site feature
-       RRNe	Within 200' of East-West Railroad
-       RRAe	Adjacent to East-West Railroad
-	
-Condition2: Proximity to various conditions (if more than one is present)
-		
-       Artery	Adjacent to arterial street
-       Feedr	Adjacent to feeder street	
-       Norm	Normal	
-       RRNn	Within 200' of North-South Railroad
-       RRAn	Adjacent to North-South Railroad
-       PosN	Near positive off-site feature--park, greenbelt, etc.
-       PosA	Adjacent to postive off-site feature
-       RRNe	Within 200' of East-West Railroad
-       RRAe	Adjacent to East-West Railroad
-	
-BldgType: Type of dwelling
+  - **LandContour**: Flatness of the property
+  - **Utilities**: Type of utilities available
+  - **LotConfig**: Lot configuration
+  - **LandSlope**: Slope of property
+  - **Neighborhood**: Physical locations within Ames city limits
+  - **Condition1**: Proximity to various conditions
+  - **Condition2**: Proximity to various conditions (if more than one is present)
+  - **BldgType**: Type of dwelling
 		
        1Fam	Single-family Detached	
        2FmCon	Two-family Conversion; originally built as one-family dwelling
