@@ -99,6 +99,7 @@ I start with reading the dataset using pandas. There 79 columns. Let's see the c
   - **YrSold**: Year Sold (YYYY)
   - **SaleType**: Type of sale
   - **SaleCondition**: Condition of sale
+  - **SalePrice**: Price of sale
 
 
 I realized that there are missing values. If we assume the dataframe as a matrix, where the columns are on the horizontal direction and the rows on the vertical, the missing values can be clearly visualized with the yellow lines, as shown in the figure below.
