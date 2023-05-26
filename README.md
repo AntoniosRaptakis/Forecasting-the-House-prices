@@ -109,7 +109,7 @@ Part of the data cleaning is to find out missing values. If we assume the datafr
 	
 How can I tackle this problem? 
 
-Firstly, I am searching which columns have data missing and if the percentage of missing values is greater or equal than a threshold of 40%, then this column has to be deleted. After encoding the binary and categorical variables, I use the follow:
+Firstly, I am searching which columns have data missing and if the percentage of missing values is equal to or greater than a threshold of 40%, then this column has to be deleted. After encoding the binary and categorical variables, I use the follow:
 	
 	missing_values_threshold = data.shape[0]*0.4
 	columns_for_deletion, variables_with_missing_values = [], []
@@ -151,4 +151,4 @@ The rest, which have simply some missing values, have been stored in a list. Wha
 	data = pd.DataFrame(imputer.fit_transform(data), columns=data.columns)
 	
 
-
+Other parts of data cleaning include the check of the data types, duplicated rows and outliers. The data types are as expected and there are no duplicated rows. For the outliers, it will be discussed later.
