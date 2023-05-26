@@ -16,4 +16,4 @@ The libraries that I used:
 - Scikit-Learn
 - Plotly
 
-After readingThe dataset include 
+After reading the dataset using pandas, I realized that there are missing values. If we assume the dataframe as a matrix, where the columns are on the horizontal direction and the rows on the vertical, the missing values can be clearly visualized with the yellow lines, as shown in the figure below.
