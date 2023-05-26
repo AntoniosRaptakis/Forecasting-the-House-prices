@@ -157,3 +157,5 @@ Other parts of data cleaning include the check of the data types, duplicated row
 ## <ins>**Data Analysis**<ins>:
 
 ## <ins>**Predictive model**<ins>:
+
+## <ins>**Pipeline of the predictive model**<ins>:
