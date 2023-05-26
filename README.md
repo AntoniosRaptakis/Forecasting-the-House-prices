@@ -120,12 +120,11 @@ Firstly, I am searching which columns have data missing and if the percentage of
 	data = data.drop(columns_for_deletion, axis=1)
 
 Which columns will be deleted?
-	
-	- Alley
-	- FireplaceQu
-	- PoolQC
-	- Fence
-	- MiscFeature
+- Alley
+- FireplaceQu
+- PoolQC
+- Fence
+- MiscFeature
 	
  The rest, which have simply some missing values, have been stored in a list. For those cases, I use the KNNImputer from the impute class of the sklearn library in order to fill in the missing values. Apparently, it uses the KNN algorithm in order to fill in the missing values. 
 	
