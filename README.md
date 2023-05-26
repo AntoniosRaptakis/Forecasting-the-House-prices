@@ -8,6 +8,12 @@ The region that the data have been collected is Ames at Iowa in the United State
 
 **Goal of the project**: Create a predictive model for the house price.
 
-Python libraries 
+The libraries that I used:
+- Numpy
+- Pandas
+- Seaborn
+- Matplotlib
+- Scikit-Learn
+- Plotly
 
 After readingThe dataset include 
