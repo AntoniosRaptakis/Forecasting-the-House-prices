@@ -120,6 +120,7 @@ Firstly, I am searching which columns have data missing and if the percentage of
 	data = data.drop(columns_for_deletion, axis=1)
 
 Which columns will be deleted?
+	
 	- Alley
 	- FireplaceQu
 	- PoolQC
