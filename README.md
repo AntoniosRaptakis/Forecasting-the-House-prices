@@ -131,7 +131,7 @@ Which columns will be deleted?
 
 The rest, which have simply some missing values, have been stored in a list. What will I do with these cases? I will follow two methods:
 	
-Method 1: I will drop all rows with nan values 
+<ins>**Method 1**<ins>: I will drop all rows with nan values 
 	# copy the data
 	data_dropped_na = data.copy()
 
@@ -142,7 +142,7 @@ Method 1: I will drop all rows with nan values
 	data_dropped_na = data_dropped_na.reset_index(drop=True)
 	
 	
-Method 2: I use the KNNImputer from the impute class of the sklearn library in order to fill in the missing values. Apparently, it uses the KNN algorithm in order to fill in the missing values. 
+<ins>**Method 2**<ins>: I use the KNNImputer from the impute class of the sklearn library in order to fill in the missing values. Apparently, it uses the KNN algorithm in order to fill in the missing values. 
 	
 	from sklearn.impute import KNNImputer
 	imputer = KNNImputer(n_neighbors=8)
