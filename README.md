@@ -131,7 +131,16 @@ Which columns will be deleted?
 
 The rest, which have simply some missing values, have been stored in a list. What will I do with these cases? I will follow two methods:
 	
-Method 1: I will drop all rows with missing values 
+Method 1: I will drop all rows with nan values 
+	# copy the data
+	data_dropped_na = data.copy()
+
+	# drop the missing values
+	data_dropped_na = data_dropped_na.dropna()
+
+	# reset index by dropping the index column instead of inserting it back into the DataFrame
+	data_dropped_na = data_dropped_na.reset_index(drop=True)
+	
 	
 Method 2: I use the KNNImputer from the impute class of the sklearn library in order to fill in the missing values. Apparently, it uses the KNN algorithm in order to fill in the missing values. 
 	
