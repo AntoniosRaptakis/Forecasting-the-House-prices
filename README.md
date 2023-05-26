@@ -143,10 +143,10 @@ The rest, which have simply some missing values, have been stored in a list. Wha
 	data_dropped_na = data_dropped_na.reset_index(drop=True)
 	
 	
-<ins>**Method 2**<ins>:
-I use the KNNImputer from the impute class of the sklearn library in order to fill in the missing values. Apparently, it uses the KNN algorithm in order to fill in the missing values. 
+**Method 2**: I use the KNNImputer from the impute class of the sklearn library in order to fill in the missing values. Apparently, it uses the KNN algorithm in order to fill in the missing values. 
 	
 	from sklearn.impute import KNNImputer
+	
 	imputer = KNNImputer(n_neighbors=8)
 	data = pd.DataFrame(imputer.fit_transform(data), columns=data.columns)
 	
