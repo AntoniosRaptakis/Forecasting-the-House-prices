@@ -108,8 +108,8 @@ Part of the data cleaning is to find out missing values. If we assume the datafr
 <img src="https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/de1d2ff3-32e1-4735-857d-c68d960e6d83" width="3500" height="400">
 	
 How can I tackle this problem? 
-	
-Firstly, I am searching which columns have data missing and if the percentage of missing values is greater or equal than a threshold of 40%, then this column has to be deleted.
+
+Firstly, I am searching which columns have data missing and if the percentage of missing values is greater or equal than a threshold of 40%, then this column has to be deleted. After encoding the binary and categorical variables, I use the follow:
 	
 	missing_values_threshold = data.shape[0]*0.4
 	columns_for_deletion, variables_with_missing_values = [], []
@@ -126,8 +126,14 @@ Which columns will be deleted?
 - PoolQC
 - Fence
 - MiscFeature
+
+
+
+The rest, which have simply some missing values, have been stored in a list. What will I do with these cases? I will follow two methods:
 	
- The rest, which have simply some missing values, have been stored in a list. For those cases, I use the KNNImputer from the impute class of the sklearn library in order to fill in the missing values. Apparently, it uses the KNN algorithm in order to fill in the missing values. 
+Method 1: I will drop all rows with missing values 
+	
+Method 2: I use the KNNImputer from the impute class of the sklearn library in order to fill in the missing values. Apparently, it uses the KNN algorithm in order to fill in the missing values. 
 	
 	from sklearn.impute import KNNImputer
 	imputer = KNNImputer(n_neighbors=8)
