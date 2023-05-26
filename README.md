@@ -108,13 +108,26 @@ Part of the data cleaning is to find out missing values. If we assume the datafr
 	
 How can I tackle this problem? 
 	
-Firstly, I am searching which columns have data missing and if the percentage of missing values is greater or equal than a threshold of 40%, then this column has to be deleted!
+Firstly, I am searching which columns have data missing and if the percentage of missing values is greater or equal than a threshold of 40%, then this column has to be deleted.
 	
 	missing_values_threshold = data.shape[0]*0.4
 	columns_for_deletion, variables_with_missing_values = [], []
 	for x in data.columns:
 	    if data[x].isna().sum() >= missing_values_threshold:
-	        print(x, ':', data[x].isna().sum())
 	        columns_for_deletion.append(x)
-	    elif data[x].isna().sum()>0:
+	    else:
 	        variables_with_missing_values.append(x)
+	data = data.drop(columns_for_deletion, axis=1)
+
+Which columns will be deleted?
+	- Alley
+	- FireplaceQu
+	- PoolQC
+	- Fence
+	- MiscFeature
+	
+ The rest, which have simply some missing values, have been stored in a list. For those cases, I use the KNNImputer from the impute class of the sklearn library in order to fill in the missing values. Apparently, it uses the KNN algorithm in order to fill in the missing values. 
+	
+	from sklearn.impute import KNNImputer
+	imputer = KNNImputer(n_neighbors=8)
+	data = pd.DataFrame(imputer.fit_transform(data), columns=data.columns)
