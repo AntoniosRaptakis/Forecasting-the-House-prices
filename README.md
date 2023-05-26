@@ -101,7 +101,7 @@ I start with reading the dataset using pandas. There are 79 columns and 1460 row
   - **SaleCondition**: Condition of sale
   - **SalePrice**: Price of sale
 
-<ins>**Data Cleaning**<ins>:
+## <ins>**Data Cleaning**<ins>:
 	
 Part of the data cleaning is to find out missing values. If we assume the dataframe as a matrix, where the columns are on the horizontal direction and the rows on the vertical, the missing values can be clearly visualized with the yellow lines, as shown in the figure below.
 
