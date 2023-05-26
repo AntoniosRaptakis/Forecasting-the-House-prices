@@ -18,4 +18,4 @@ The libraries that I used:
 
 After reading the dataset using pandas, I realized that there are missing values. If we assume the dataframe as a matrix, where the columns are on the horizontal direction and the rows on the vertical, the missing values can be clearly visualized with the yellow lines, as shown in the figure below.
 
-<img src="https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/de1d2ff3-32e1-4735-857d-c68d960e6d83" width="100" height="100">
+<img src="https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/de1d2ff3-32e1-4735-857d-c68d960e6d83" width="2000" height="300">
