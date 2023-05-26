@@ -18,7 +18,7 @@ The libraries that I used:
 
 <ins>**The dataset**<ins>:
 	
-I start with reading the dataset using pandas. There 79 columns. Let's see their meaning:
+I start with reading the dataset using pandas. There are 79 columns and 1460 rows. Let's see their meaning:
 	
   - **MSSubClass**: Identifies the type of dwelling involved in the sale.	
   - **MSZoning**: Identifies the general zoning classification of the sale.
