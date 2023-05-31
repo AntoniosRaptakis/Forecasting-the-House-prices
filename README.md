@@ -159,5 +159,9 @@ Other parts of data cleaning include the check of the data types, duplicated row
 ![correlation_with_SalePrices_pearsonr](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/ec02147f-9fe8-4edf-99c7-22a32d780e2a)
 
 ## <ins>**Predictive model**<ins>:
+	
+<img width="795" alt="results_first_model" src="https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/8d6fc030-5084-4f22-b417-77af512bb3bd">
 
 ## <ins>**Pipeline of the predictive model**<ins>:
+
+[pipeline_with_regressors.pdf](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/files/11610068/pipeline_with_regressors.pdf)
