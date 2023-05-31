@@ -164,4 +164,4 @@ Other parts of data cleaning include the check of the data types, duplicated row
 
 ## <ins>**Pipeline of the predictive model**<ins>:
 
-[pipeline_with_regressors.pdf](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/files/11610068/pipeline_with_regressors.pdf)
+![pipeline_with_regressors](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/92ff7681-6256-44d0-a081-eb3d3520d308)
