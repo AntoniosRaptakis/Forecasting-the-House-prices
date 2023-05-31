@@ -155,6 +155,8 @@ Other parts of data cleaning include the check of the data types, duplicated row
 
 
 ## <ins>**Data Analysis**<ins>:
+	
+![correlation_with_SalePrices_pearsonr](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/ec02147f-9fe8-4edf-99c7-22a32d780e2a)
 
 ## <ins>**Predictive model**<ins>:
 
