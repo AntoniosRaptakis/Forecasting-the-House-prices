@@ -17,6 +17,7 @@ The libraries that I used:
 - Seaborn
 - Matplotlib
 - Scikit-Learn
+- XGBoost
 - Plotly
 
 <ins>**The dataset**<ins>:
@@ -169,3 +170,9 @@ Other parts of data cleaning include the check of the data types, duplicated row
 ## <ins>**Pipeline of the predictive model**<ins>:
 
 ![pipeline_with_regressors](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/92ff7681-6256-44d0-a081-eb3d3520d308)
+	
+	
+![both_regressors_actual_predicted_values](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/fb7ebfc8-f91b-4fe4-b85b-427291a893c9)
+	
+![predicted_actual_values](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/71ab000b-ccec-4671-aaf8-573b32ae4018)
+
