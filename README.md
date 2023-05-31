@@ -108,7 +108,7 @@ I start with reading the dataset using pandas. There are 79 columns and 1460 row
 	
 Part of the data cleaning is to find out missing values. If we assume the dataframe as a matrix, where the columns are on the horizontal direction and the rows on the vertical, the missing values can be clearly visualized with the yellow lines, as shown in the figure below.
 
-<img src="https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/de1d2ff3-32e1-4735-857d-c68d960e6d83" width="3500" height="400">
+<img src="[https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/de1d2ff3-32e1-4735-857d-c68d960e6d83](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/01d2ac55-61c1-4006-a120-74b23b855e6c)" width="3500" height="400">
 	
 	
 ![missing_values](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/01d2ac55-61c1-4006-a120-74b23b855e6c)
