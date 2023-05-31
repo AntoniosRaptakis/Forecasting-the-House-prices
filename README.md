@@ -1,5 +1,8 @@
 # Predicting the price of houses
 
+![house_dream](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/eb00c8c1-209a-45df-bfc5-af6e8a4fe157)
+
+
 
 Buying a house is one of the biggest dreams of any family, or even individuals. It is a "long-time" project and investment, because one pays the loan to the financial institution for several years. People consider that they are paying the rent for the house, but after few years this house belongs to them.
 This project aims to predict the price of a house. The dataset has been taken by kaggle: https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data
