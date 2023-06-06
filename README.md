@@ -366,7 +366,7 @@ The dataframe below includes the $R^2$ score of the best estimator for each algo
 Gradient Boosting Regressor for the dataset that has filled the missing values with KNN imputer performs the best. Random Forest and Extreme Gradient Boosting(tree) for the data_dropped_na and data_imputer perform also very good. 
 	
 
-## <ins>**Pipeline of the predictive model**<ins>:
+## <ins>**Pipeline with pre-processed data**<ins>:
 
 Let's see how does a model with pre-processed data perform..? I will use the Gradient Boosting and the Extreme Gradient Boosting Regressor via a pipeline and I will check only on the data_imputer dataset. Specifically:
 	
