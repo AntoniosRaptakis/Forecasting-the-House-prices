@@ -174,13 +174,28 @@ Other parts of data cleaning include the check of the data types, duplicated row
 
 ## <ins>**Correlations**<ins>:
 	
-Before I start building up the predictive model, I would like to see the correlations between the given and the target variables. There are different methods to check the correlations between a continuous variable (target) and binaries or categorical or continuous variable. One method to check the correlation between a binary or categorical variable with a continuous one is the Point-Biserial The data must meet some requirements: 
+Before I start building up the predictive model, I would like to see the correlations between the given variables and the target one. There are different methods to check the correlations between a continuous variable (target) and binaries or categorical or continuous variable. One method to check the correlation between a binary or categorical variable with a continuous one is the Point-Biserial The data must meet some requirements: 
 
 - they must follow the normal distribution,
 - there must be no outliers, and 
-- the variances between the groups must be equal
+- the variances between the groups must be equal.
 
+Point-Biserial is a special case of the pearson correlation. The pearson correlation is supported by pandas and it is the default method for the correlation. The command is data.corr(method="...") or data.corrwith(target column, method="...").
+	
+Another method is the ANOVA (ANalysis Of VAriance). If we have one factor (one categorical variable), then we use the one-way ANOVA. If we use two or more factors, then we use multifactorial ANOVA. The requirements of ANOVA for the continuous variable are the same as for the Point-Biserial. ANOVA is a statistical test and we see if the groups are statistically significant based on the threshold that we put (alpha value).
 
+We must not ignore the corellation between continuous variables, which can be checked using the linear correlation.
+	
+Here, I will use the pearson method to check the correlation between the independent variables of the predictive model that I will build and the target (or dependent) variable. 
+
+Before I check the correlation as described above, I will drop some more columns that I do not need. 
+	
+	columns_to_be_removed = ['YearRemodAdd','MoSold','SaleType','GarageYrBlt','GarageFinish','GarageCars',
+                    	         'PavedDrive','Foundation']
+
+	data_dropped_na = data_dropped_na.drop(columns_to_be_removed, axis=1)
+	data_imputer = data_imputer.drop(columns_to_be_removed, axis=1)
+	
 	
 ![correlation_with_SalePrices_pearsonr](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/ec02147f-9fe8-4edf-99c7-22a32d780e2a)
 
