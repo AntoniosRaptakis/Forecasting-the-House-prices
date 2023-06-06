@@ -217,7 +217,153 @@ From XGBRegressor I will use the different booster methods, three and gblinear.
 
 I will tune the hyperparameters in the training dataset (70% of the whole dataset) and then cross-validate the result using cross_val_score using as scoring method the same metrics as GridSearchCV, the $R^2$.
 
+**Import the libraries:**
+	
+	from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_score, StratifiedKFold
+	from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+	from sklearn.neighbors import KNeighborsRegressor
+	from sklearn.linear_model import Lasso, Ridge, ElasticNet
+	from xgboost import XGBRegressor
+
+**Split the data and create the train-test sets:**
+	
+	dataset_varname = [(data_dropped_na,'dropped_na'),
+                   	   (data_dropped_na_thres,'dropped_na_thres'),
+                      	   (data_imputer,'imputer'),
+                   	   (data_imputer_thres,'imputer_thres')]
+
+	for dataset,name in dataset_varname:
+	    X, y = dataset.iloc[:,:-1], dataset.iloc[:,-1]
+	    globals()['X_train_%s' %name],globals()['X_test_%s' %name],globals()['y_train_%s' %name],globals()['y_test_%s' %name] = train_test_split(X, y, test_size=0.3, random_state=42)
+	
+**The models:**
+	
+	# Lasso, Ridge
+	parameters = {'alpha':[0.001, 0.01, 0.1, 1]}
+
+	GD_Lasso = GridSearchCV(Lasso(),
+          	                param_grid=parameters, 
+           	                scoring='r2',
+            	                n_jobs=-1)
+
+	GD_Ridge = GridSearchCV(Ridge(),
+                        	param_grid=parameters, 
+                        	scoring='r2',
+                        	n_jobs=-1)
+
+
+	# Elastic Net 
+	parameters = {'alpha': [0.001, 0.01, 0.1, 1],
+              	      'l1_ratio': [0.01, 0.1, 0.2, 0.5, 0.7, 0.9, 1.0]}
+
+	GD_elnet = GridSearchCV(ElasticNet(),
+                        	param_grid=parameters, 
+                        	scoring='r2',
+                        	n_jobs=-1)
+
+	# K-nearest neighbors regressor
+
+	parameters = {'n_neighbors': [i for i in range(5,35,5)]}
+
+	GD_knn = GridSearchCV(KNeighborsRegressor(),
+                              param_grid=parameters, 
+                              scoring='r2',
+                              n_jobs=-1)
+
+
+	# Random Forest, Gradient Boosting
+	parameters = {'max_depth': [i for i in range(3,8)],
+              	      'min_samples_split': [i for i in range(3,8)],
+              	      'min_samples_leaf': [i for i in range(3,8)]}
+
+	# Random Forest
+	GD_RF = GridSearchCV(RandomForestRegressor(),
+                     	     param_grid=parameters, 
+                     	     scoring='r2',
+                     	     n_jobs=-1)
+
+	# Gradient Boosting
+	GD_GB = GridSearchCV(GradientBoostingRegressor(),
+                     	     param_grid=parameters, 
+                     	     scoring='r2',
+                     	     n_jobs=-1)
+
+
+	# Extreme Gradient Boosting for booster = tree
+	parameters = {'max_depth': [3,6,9],
+              	      'min_child_weight': [3,6,9],
+              	      'max_leaves': [0,2,4,6]}
+
+	GD_XGBoost_tree = GridSearchCV(XGBRegressor(booster='gbtree'),
+                               	       param_grid=parameters, 
+                               	       scoring='r2',
+                               	       n_jobs=-1)
+
+
+	# Extreme Gradient Boosting for booster = linear
+	parameters = {'lambda': [0.01, 0.1, 1],
+                      'alpha': [0.1, 0.2, 0.5, 0.7]}
+
+	GD_XGBoost_linear = GridSearchCV(XGBRegressor(booster='gblinear'),
+                                 	 param_grid=parameters, 
+                                 	 scoring='r2',
+                                 	 n_jobs=-1)
+
+
+
+	models = {'Lasso Regression': GD_Lasso,
+          	  'Ridge Regression': GD_Ridge,
+          	  'Elastic Net': GD_elnet,
+          	  'k-NN Regressor': GD_knn,
+          	  'Random Forest Regressor': GD_RF,
+          	  'Gradient Boosting Regressor': GD_GB,
+          	  'XBGRegressor-tree': GD_XGBoost_tree,
+          	  'XBGRegressor-linear': GD_XGBoost_linear}
+	
+**k-folds**
+	
+	k_folds = StratifiedKFold(n_splits=10, random_state=42, shuffle=True)
+	
+**Train the models and store the best estimator scores**
+	
+	train_test_whole_dataset = [(X_train_dropped_na, y_train_dropped_na, data_dropped_na),
+                            	    (X_train_dropped_na_thres, y_train_dropped_na_thres, data_dropped_na_thres),
+                            	    (X_train_imputer, y_train_imputer, data_imputer),
+                            	    (X_train_imputer_thres, y_train_imputer_thres, data_imputer_thres)]
+
+	results_col = ['Regressor','R^squared dropped-na','R^squared dropped-na thres',
+               	       'R^squared imputer', 'R^squared imputer thres']
+	results = pd.DataFrame(columns=results_col)
+
+	l = 0
+	r2_dropped_na, r2_dropped_na_thres, r2_imputer, r2_imputer_thres = [], [], [], []
+
+	for model_name, model in models.items():
+    		print(model_name)
+    		r2_score_model = []
+    		for (X_train,y_train,dataset) in train_test_whole_dataset:
+        		model.fit(X_train,y_train)
+        		X, y = dataset.iloc[:,:-1], dataset.iloc[:,-1]
+        		r2 = cross_val_score(model.best_estimator_, X, y, cv=k_folds, scoring='r2')
+        		r2_score_model.append(r2)    
+    	r2_dropped_na.append(r2_score_model[0])
+    	r2_dropped_na_thres.append(r2_score_model[1])
+    	r2_imputer.append(r2_score_model[2])
+    	r2_imputer_thres.append(r2_score_model[3])
+      
+    	results.loc[l] = [model_name,
+                      	  '%s $\pm$ %s' %(round(r2_score_model[0].mean(),3),round(r2_score_model[0].std(),3)),
+                      	  '%s $\pm$ %s' %(round(r2_score_model[1].mean(),3),round(r2_score_model[1].std(),3)),
+                      	  '%s $\pm$ %s' %(round(r2_score_model[2].mean(),3),round(r2_score_model[2].std(),3)),
+                      	  '%s $\pm$ %s' %(round(r2_score_model[3].mean(),3),round(r2_score_model[3].std(),3))]
+    	l+=1
+
+	
+The dataframe below includes the results of the best estimator for each algorithm by taking the mean value and the standard deviation on the stratified k-fold of the datasets.
+	
 <img width="795" alt="results_first_model" src="https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/8d6fc030-5084-4f22-b417-77af512bb3bd">
+	
+
 
 ## <ins>**Pipeline of the predictive model**<ins>:
 
