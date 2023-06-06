@@ -359,13 +359,40 @@ I will tune the hyperparameters in the training dataset (70% of the whole datase
     	l+=1
 
 	
-The dataframe below includes the results of the best estimator for each algorithm by taking the mean value and the standard deviation on the stratified k-fold of the datasets.
+The dataframe below includes the $R^2$ score of the best estimator for each algorithm by taking the mean value and the standard deviation on the stratified k-fold of the datasets.
 	
 <img width="795" alt="results_first_model" src="https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/8d6fc030-5084-4f22-b417-77af512bb3bd">
 	
-
+Gradient Boosting Regressor for the dataset that has filled the missing values with KNN imputer performs the best. Random Forest and Extreme Gradient Boosting(tree) for the data_dropped_na and data_imputer perform also very good. 
+	
 
 ## <ins>**Pipeline of the predictive model**<ins>:
+
+Let's see how does a model with pre-processed data perform..? I will use the Gradient Boosting and the Extreme Gradient Boosting Regressor via a pipeline and I will check only on the data_imputer dataset. Specifically:
+	
+- Pipeline with Gradient Boosting: PolynomialFeatures -> StandardScaler -> MinMaxScaler -> Gradient Boosting
+
+- Pipeline with Extreme Gradient Boosting: PolynomialFeatures -> StandardScaler -> MinMaxScaler -> Extreme Gradient Boosting
+
+**The script:**
+	
+	from sklearn.pipeline import Pipeline
+	from sklearn.preprocessing import PolynomialFeatures, StandardScaler, MinMaxScaler
+
+	pipeline_gb = Pipeline(steps = [('Polynomial-2', PolynomialFeatures(degree=2)),
+                                	('Standard Scaler', StandardScaler()),
+                                	('Min-Max Scaler', MinMaxScaler()),
+                                	('Gradient Boosting Regressor', GradientBoostingRegressor())])
+
+	pipeline_xgb = Pipeline(steps = [('Polynomial-2', PolynomialFeatures(degree=2)),
+                                 	('Standard Scaler', StandardScaler()),
+                                 	('Min-Max Scaler', MinMaxScaler()),
+                                 	('Extreme Gradient Boosting Regressor', XGBRegressor())])
+
+	X, y = data_imputer.iloc[:,:-1], data_imputer.iloc[:,-1]
+
+	X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.3,random_state=42)
+	
 
 ![pipeline_with_regressors](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/92ff7681-6256-44d0-a081-eb3d3520d308)
 	
