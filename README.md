@@ -205,7 +205,7 @@ The figure above shows the correlation between each variable with the target var
 
 For the predictive model, I will check the four of those cases (two different methods to deal with the missing values and for each of them I apply the threshold as result of the pearson correlation.)
 
-## <ins>**Predictive model**<ins>:
+## <ins>**Selecting the algorithm and checking the scores**<ins>:
 	
 One part of the model is to find out the independent variables. Another part is the machine learning algorithm that fits the best on the data. Thus, I will compare the result on the datasets using different algorithms. Specifically:
 
@@ -404,3 +404,41 @@ The scatterplot above shows how close are the actual to the predicted values for
 
 ![predicted_actual_values](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/71ab000b-ccec-4671-aaf8-573b32ae4018)
 
+
+## <ins>**The final predictive model**<ins>:
+
+One can test the predictive model on a test-set. The predictive model includes the following steps:
+	
+- Step 1: Drop the columns for deletion (columns with more than 40% of missing values)
+- Step 2: Encode binary and categorical variables
+- Step 3: Drop other columns that I logically do not need 
+- Step 4: Apply KNN-imputer to impute the missing values (this is not part of the predictive model, it is more related to the dataset)
+- Step 5: Apply the degree=2 of the PolynomialFeatures on the independent variables of the dataset.
+- Step 6: Apply the StandardScaler.
+- Step 7: Apply the MinMaxScaler.
+- Step 8: Apply the GradientBoostingRegressor.
+	
+The steps 5-8 can be located in a pipeline, as was done in the analysis before.
+	
+Let's see the respective script:
+	
+	# read the csv file
+	data_test = pd.read_csv("files_with_the_data/test.csv")
+
+	# drop the columns for deletion (columns with more than 40% of missing values)
+	data_test = data_test.drop(columns_for_deletion, axis=1)
+
+	# encode the string variables
+	le = LabelEncoder()
+	for x in binary_var+categorical_var:
+    		data_test[x] = le.fit_transform(data_test[x])
+
+	# remove the columns that are not needed
+	data_test = data_test.drop(columns_to_be_removed, axis=1)    
+
+	# Use the KNN-imputer to impute the missing values
+	data_test = pd.DataFrame(imputer.fit_transform(data_test), columns=data_test.columns)
+
+	# Use the Pipeline:
+	# PoynomialFeatures -> StandardScaler -> MinMaxScaler -> GradientBoostingRegressor
+	predicted_values = np.around(pipeline_gb.predict(data_test),1)
