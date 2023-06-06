@@ -175,9 +175,10 @@ Other parts of data cleaning include the check of the data types, duplicated row
 ## <ins>**Correlations**<ins>:
 	
 Before I start building up the predictive model, I would like to see the correlations between the given and the target variables. There are different methods to check the correlations between a continuous variable (target) and binaries or categorical or continuous variable. One method to check the correlation between a binary or categorical variable with a continuous one is the Point-Biserial The data must meet some requirements: 
-	- they must follow the normal distribution,
-	- there must be no outliers, and 
-	- the variances between the groups must be equal
+
+- they must follow the normal distribution,
+- there must be no outliers, and 
+- the variances between the groups must be equal
 
 
 	
