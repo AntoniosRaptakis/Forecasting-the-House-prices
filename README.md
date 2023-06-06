@@ -6,11 +6,17 @@
 
 Buying a house is one of the biggest dreams of any family, or even individuals. It is a "long-time" project and and life-time investment, because one pays the loan to the financial institution for several years. People consider that they are paying the rent for the house, but after few years this house belongs to them. 
 
-There are several reasons why one considers buying his own home. 
+Let's see some of the reasons why one considers buying his own home. 
 
-- Pride of ownership is probably the number one reason that people enjoy owning their own homes. It means you can paint the walls any color you desire, turn your music up, attach permanent fixtures, and decorate your home according to your taste.
+- **Pride of ownership** is probably the number one reason that people enjoy owning their own homes. It means that one can, for example, paint the walls any color he desires, turn the music up, attach permanent fixtures, and decorate the home according to his taste.
 
-- Beyond pride of ownership, it's important to realize another benefit. Although real estate values move in cycles, housing values have consistently appreciated. The Federal Housing Finance Agency tracks the movements of single-family home values across the country. Its House Price Index breaks down the changes by region and metropolitan area, and you can track how home values have increased over time.
+- The **mortgage interest deduction** can overshadow the desire for the pride of ownership as well. As long as the mortgage balance is smaller than the price of the home, mortgage interest is fully deductible on the tax return. For a large portion of the time one pays down your mortgage, interest is the largest component of your mortgage payment.
+
+- In general, one can **deduct state and local real estate taxes**. Most homeowners pay their property taxes as part of their monthly mortgage payments.
+
+- **Mortgage Reduction Builds Equity**: Each month, part of the monthly payment is applied to the loan's principal balance, which reduces the obligation. The longer one lives in the home, the more equity he is are building with each payment.
+
+Source: https://www.thebalancemoney.com/eight-reasons-to-buy-a-home-1798233
 
 This project aims to predict the price of a house. The dataset has been taken by kaggle: https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/data
 
