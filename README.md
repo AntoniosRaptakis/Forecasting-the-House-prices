@@ -186,7 +186,7 @@ Another method is the ANOVA (ANalysis Of VAriance). If we have one factor (one c
 
 We must not ignore the corellation between continuous variables, which can be checked using the linear correlation.
 	
-Here, I will use the pearson method to check the correlation between the independent variables of the predictive model that I will build and the target (or dependent) variable. 
+Here, I will use the pearson method to check the correlation between the independent variables of the predictive model that I will build and the target (or dependent) variable. In the jupyter-notebook I have applied other tests as well.
 
 Before I check the correlation as described above, I will drop some more columns that I do not need. 
 	
@@ -196,13 +196,15 @@ Before I check the correlation as described above, I will drop some more columns
 	data_dropped_na = data_dropped_na.drop(columns_to_be_removed, axis=1)
 	data_imputer = data_imputer.drop(columns_to_be_removed, axis=1)
 	
-	
+
 ![correlation_with_SalePrices_pearsonr](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/ec02147f-9fe8-4edf-99c7-22a32d780e2a)
 
+The figure above shows the correlation between each variable with the target variable using the pearson method for the two datasets that I have. There are some variables that they have a very low correlation. Thus, I will apply on the datasets (data_dropped_na and data_imputer) a threshold of 10% (corr_coef>=0.1) and reduce the independent variables.
 	
 ![methods_for_data_modelling](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/b7ddcb9e-b8d1-46d2-8b8c-87e93d392f8b)
 
-	
+For the predictive model, I will check the four of those cases (two different methods to deal with the missing values and for each of them I apply the threshold as result of the pearson correlation.)
+
 ## <ins>**Predictive model**<ins>:
 	
 <img width="795" alt="results_first_model" src="https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/8d6fc030-5084-4f22-b417-77af512bb3bd">
