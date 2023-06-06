@@ -207,6 +207,16 @@ For the predictive model, I will check the four of those cases (two different me
 
 ## <ins>**Predictive model**<ins>:
 	
+One part of the model is to find out the independent variables. Another part is the machine learning algorithm that fits the best on the data. Thus, I will compare the result on the datasets using different algorithms. Specifically:
+
+- from the linear_model: Ridge, Lasso & ElasticNet
+- KNN
+- ensemble methods: RandomForestRegressor, GradientBoostingRegressor & XGBRegressor
+
+From XGBRegressor I will use the different booster methods, three and gblinear.
+
+I will tune the hyperparameters in the training dataset (70% of the whole dataset) and then cross-validate the result using cross_val_score using as scoring method the same metrics as GridSearchCV, the $R^2$.
+
 <img width="795" alt="results_first_model" src="https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/8d6fc030-5084-4f22-b417-77af512bb3bd">
 
 ## <ins>**Pipeline of the predictive model**<ins>:
