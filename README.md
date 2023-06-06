@@ -368,12 +368,14 @@ Gradient Boosting Regressor for the dataset that has filled the missing values w
 
 ## <ins>**Pipeline with pre-processed data**<ins>:
 
-Let's see how does a model with pre-processed data perform..? I will use the Gradient Boosting and the Extreme Gradient Boosting Regressor via a pipeline and I will check only on the data_imputer dataset. Specifically:
+Let's see how does a model with pre-processed data perform..! One could stop at the results above, although it is great to see if a model with pre-processed can perform better. I will use the Gradient Boosting and the Extreme Gradient Boosting Regressor via a pipeline and I will check only on the data_imputer dataset. In these cases, I will not tune the hyperparameters of the regressor algorithms. Specifically:
 	
 - Pipeline with Gradient Boosting: PolynomialFeatures -> StandardScaler -> MinMaxScaler -> Gradient Boosting
 
 - Pipeline with Extreme Gradient Boosting: PolynomialFeatures -> StandardScaler -> MinMaxScaler -> Extreme Gradient Boosting
 
+I use the degree=2 for PolynomialFeatures. For the algorithms at the last stage of the pipeline I will not tune the hyperparameters.
+	
 **The script:**
 	
 	from sklearn.pipeline import Pipeline
@@ -396,8 +398,9 @@ Let's see how does a model with pre-processed data perform..? I will use the Gra
 
 ![pipeline_with_regressors](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/92ff7681-6256-44d0-a081-eb3d3520d308)
 	
-	
 ![both_regressors_actual_predicted_values](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/fb7ebfc8-f91b-4fe4-b85b-427291a893c9)
 	
+The scatterplot above shows how close are the actual to the predicted values for the different algorithms (a good model must give data close to the y=x). The $R^2$ for both cases gives higher values than before, where the Gradient Boosting Regressor performs a little bit better. Thus, let's see only the left plot (using the pipeline with the Gradient Boosting Regressor), by giving a color to the points indicating the difference between actual and predicted values.
+
 ![predicted_actual_values](https://github.com/AntoniosRaptakis/Forecasting-the-House-prices/assets/86191637/71ab000b-ccec-4671-aaf8-573b32ae4018)
 
