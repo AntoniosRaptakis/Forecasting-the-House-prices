@@ -120,7 +120,7 @@ I start with reading the dataset using pandas. There are 79 columns and 1460 row
 
 ## <ins>**Data Cleaning**<ins>:
 
-Before I start with the cleaning part of the project, I must articulate that the I there are two jupyter notebooks for this project. One is referred to the description that I follow below, the Predicting_the_house_prices_initial.ipynb, and the other to a different data cleaning, the Predicting_the_house_prices_different_cleaning.ipynb. For the second one, I replaced some of the Nan values of the dataframe because based on the data_description.txt file (you can find it in the files_with_data directory) the NA had a specific meaning. Thus, it is interesting to give an eye to that one as well!
+Before I start with the cleaning part of the project, I must articulate that the I there are two jupyter notebooks for this project. One is referred to the description that I follow below, the **Predicting_the_house_prices_initial.ipynb**, and the other to a different data cleaning, the **Predicting_the_house_prices_different_cleaning.ipynb**. For the second one, I replaced some of the Nan values of the dataframe because based on the <u>**data_description.txt**</u> file (you can find it in the files_with_data directory) the <u>NA</u> had a specific meaning. Thus, it is interesting to give an eye to that one as well!
 
 Part of the data cleaning is to find out missing values. If we assume the dataframe as a matrix, where the columns are on the horizontal direction and the rows on the vertical, the missing values can be clearly visualized with the yellow lines, as shown in the figure below.
 
